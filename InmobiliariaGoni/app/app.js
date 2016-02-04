@@ -1,4 +1,6 @@
 ﻿(function () {
     "use strict";
-    var app = angular.module("realEstateManagement", []);
+    var app = angular.module("realEstateManagement",
+                                ["common.services",
+                                    "houseResourceMock"]);
 }());

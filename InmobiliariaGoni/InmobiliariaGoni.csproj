@@ -85,6 +85,9 @@
     <Content Include="app\app.js" />
     <Content Include="app\Controllers\houseCtrl.js" />
     <Content Include="app\Controllers\productCtrl.js" />
+    <Content Include="app\Services\common.services.js" />
+    <Content Include="app\Services\houseResource.js" />
+    <Content Include="app\Services\MockServices\houseResourceMock.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\modern-business.css" />
@@ -98,6 +101,8 @@
     <Content Include="Index.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-resource.min.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -115,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="app\TestData\products.json" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -159,7 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\Models\" />
-    <Folder Include="app\Services\" />
     <Folder Include="app\Views\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
