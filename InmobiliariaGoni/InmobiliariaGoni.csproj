@@ -81,7 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.html" />
     <Content Include="app\app.js" />
+    <Content Include="app\Controllers\houseCtrl.js" />
     <Content Include="app\Controllers\productCtrl.js" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />

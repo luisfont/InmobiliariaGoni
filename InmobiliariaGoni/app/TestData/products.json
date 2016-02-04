@@ -9,7 +9,7 @@
     "price": 19.95,
     "category": "garden",
     "tags": [ "leaf", "tool" ],
-    "imageUrl": "Content/images/Leaf-Rake.png"
+    "imageUrl": "Content/images/TestImages/Leaf-Rake.png"
   },
   {
     "productId": 5,
@@ -21,6 +21,6 @@
     "price": 8.99,
     "category": "toolbox",
     "tags": [ "tool" ],
-    "imageUrl": "Content/images/rejon-Hammer.png"
+    "imageUrl": "Content/images/TestImages/rejon-Hammer.png"
   }
 }

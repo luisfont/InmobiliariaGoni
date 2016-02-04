@@ -1,7 +1,7 @@
 ﻿(function () {
 	"use strict";
 	angular
-		.module("productManagement")
+		.module("realEstateManagement")
 		.controller("ProductListCtrl", ProductListCtrl);
 
 	function ProductListCtrl() {
@@ -18,7 +18,7 @@
 			   "price": 19.95,
 			   "category": "garden",
 			   "tags": ["leaf", "tool"],
-			   "imageUrl": "Content/images/TestImages/Leaf-Rake.png"
+			   "imageUrl": "http://placehold.it/700x400"
 		   },
 		    {
 			    "productId": 5,
@@ -30,7 +30,7 @@
 			    "price": 8.99,
 			    "category": "toolbox",
 			    "tags": ["tool"],
-			    "imageUrl": "Content/images/TestImages/rejon-Hammer.png"
+			    "imageUrl": "http://placehold.it/700x400"
 		    }];
 
 		self.showImage = false;

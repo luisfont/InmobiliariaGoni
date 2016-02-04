@@ -1,15 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Go&ntilde;i y Asociados, S.A.</title>
-	<meta charset="utf-8" />
-
-	<!-- Style Sheets -->
-	<link href="Content/css/bootstrap.css" rel="stylesheet" />
-	<link href="Content/css/app.css" rel="stylesheet" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Acerca De - Go&ntilde;i y Asociados, S.A.</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="Content/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
 	<link href="Content/css/modern-business.css" rel="stylesheet">
+	<!-- Custom Fonts -->
 	<link href="Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -18,7 +21,8 @@
 	<![endif]-->
 
 </head>
-<body ng-app="realEstateManagement">
+<body>
+	<!-- Navigation -->
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
@@ -84,43 +88,6 @@
 		</div>
 		<!-- /.container -->
 	</nav>
-	<!-- Header Carousel -->
-	<header id="myCarousel" class="carousel slide">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-			<div class="item active">
-				<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 1</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 2</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 3</h2>
-				</div>
-			</div>
-		</div>
-		<!-- Controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="icon-prev"></span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" data-slide="next">
-			<span class="icon-next"></span>
-		</a>
-	</header>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -128,53 +95,36 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					House List
-					<small>Search Value</small>
+					Acerca De
+					<small>Subheading</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="index.html">Inicio</a>
 					</li>
-					<li class="active">House Search</li>
+					<li class="active">Acerca De</li>
 				</ol>
 			</div>
 		</div>
 		<!-- /.row -->
-		<div class="row" ng-controller="HouseListCtrl as vm">
-			<div class="col-md-4 img-portfolio" ng-repeat="house in vm.houses">
-				<a href="portfolio-item.html">
-					<img class="img-responsive img-hover" src="{{ house.imageUrl }}" 
-						 alt="{{ house.houseTitle }}" 
-						 title="{{ house.houseTitle }}">
-				</a>
-				<h3>
-					<a href="portfolio-item.html">{{ house.houseTitle }}</a>
-				</h3>
-				<p>
-					<i class="fa fa-barcode"></i>&nbsp;{{ house.houseCode }}<br />
-					<i class="fa fa-money"></i>&nbsp;{{ house.price | currency }}<br />
-					{{ house.description }}
+		<!-- Intro Content -->
+		<div class="row">
+			<div class="col-md-6">
+				<img class="img-responsive" src="http://placehold.it/750x450" alt="">
+			</div>
+			<div class="col-md-6">
+				<h2>Go&ntilde;i y Asociados, S.A.</h2>
+				<p style="text-align:justify;">
+					En Goñi y Asociados, S.A. somos especialistas en servicios de asesoría inmobiliaria, con 58 años en el mercado hemos marcado una clara diferencia al mantenernos en el medio como una de las inmobiliarias con mayor solidez en el ramo a nivel naciona.
+					Nuestra Misión: Proveer a nuestros clientes un servicio de calidad, confianza, confidencialidad y seguridad con atención personalizada en cualquier operación inmobiliaria.
+					Nuestra Visión:  Ser una empresa líder en el mercado inmobiliario y superar las necesidades y expectativas de nuestros clientes.
+					Nuestro Objetivo:  Asesorar y garantizar a nuestros clientes, operaciones cien por ciento transparentes.
+					Desde su fundación, el Sr. Jorge López Vásquez, el Sr. Jorge V. Goñi Zavala y su grupo han asesorado con ética la toma de decisiones de múltiples personas, familias y empresas, en beneficio del patrimonio que representan los bienes raíces.
+					Orgullosamente estamos presentes, agradeciendo a Dios la fuente de trabajo con la cual llevamos prosperidad y bienestar anuestras familias y a la comunidad.
+					En Goñi y Asociados, S.A…. Conocemos nuestro terreno.
 				</p>
 			</div>
 		</div>
 	</div>
-
-	<!-- Library Scripts -->
-	<script src="scripts/jquery.js"></script>
-	<script src="scripts/angular.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
-
-	<!-- Application Script -->
-	<script src="app/app.js"></script>
-
-	<!-- Controllers -->
-	<script src="app/Controllers/productCtrl.js"></script>
-	<script src="app/Controllers/houseCtrl.js"></script>
-	<!-- Script to Activate the Carousel -->
-	<script>
-	$('.carousel').carousel({
-		interval: 5000 //changes the speed
-	})
-	</script>
 </body>
 </html>
