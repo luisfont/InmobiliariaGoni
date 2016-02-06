@@ -30,13 +30,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Inmobiliaria Go&ntilde;i y Asociados</a>
+				<a class="navbar-brand" ui-sref="home">Inmobiliaria Go&ntilde;i y Asociados</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="about.html">Acerca de</a>
+						<a ui-sref="about">Acerca de</a>
 					</li>
 					<li>
 						<a href="services.html">Nuestros Servicios</a>
@@ -45,22 +45,25 @@
 						<a href="contact.html">Contacto</a>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Propiedades <b class="caret"></b></a>
+						<a style="cursor:pointer;" class="dropdown-toggle" data-toggle="dropdown">Propiedades <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="portfolio-1-col.html">Casas</a>
+								<a ui-sref="houseList">Casas</a>
 							</li>
 							<li>
-								<a href="portfolio-2-col.html">Terrenos</a>
+								<a ui-sref="houseEdit.info({houseId:0})">Agregar Casa</a>
 							</li>
 							<li>
-								<a href="portfolio-3-col.html">Oficinas</a>
+								<a href="">Terrenos</a>
 							</li>
 							<li>
-								<a href="portfolio-4-col.html">Departamentos</a>
+								<a href="">Oficinas</a>
 							</li>
 							<li>
-								<a href="portfolio-item.html">Desarrollos</a>
+								<a href="">Departamentos</a>
+							</li>
+							<li>
+								<a href="">Desarrollos</a>
 							</li>
 						</ul>
 					</li>
@@ -124,46 +127,15 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<!-- Page Heading/Breadcrumbs -->
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">
-					House List
-					<small>Search Value</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li>
-						<a href="index.html">Home</a>
-					</li>
-					<li class="active">House Search</li>
-				</ol>
-			</div>
-		</div>
-		<!-- /.row -->
-		<div class="row" ng-controller="HouseListCtrl as vm">
-			<div class="col-md-4 img-portfolio" ng-repeat="house in vm.houses">
-				<a href="portfolio-item.html">
-					<img class="img-responsive img-hover" src="{{ house.imageUrl }}" 
-						 alt="{{ house.houseTitle }}" 
-						 title="{{ house.houseTitle }}">
-				</a>
-				<h3>
-					<a href="portfolio-item.html">{{ house.houseTitle }}</a>
-				</h3>
-				<p>
-					<i class="fa fa-barcode"></i>&nbsp;{{ house.houseCode }}<br />
-					<i class="fa fa-money"></i>&nbsp;{{ house.price | currency }}<br />
-					{{ house.description }}
-				</p>
-			</div>
-		</div>
+		<div ui-view></div>
 	</div>
 
 	<!-- Library Scripts -->
 	<script src="scripts/jquery.js"></script>
 	<script src="scripts/angular.js"></script>
 	<script src="scripts/angular-resource.min.js"></script>
-    <script src="scripts/angular-mocks.js"></script>
+	<script src="scripts/angular-mocks.js"></script>
+	<script src="scripts/angular-ui-router.min.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
 
 	<!-- Application Script -->
@@ -171,12 +143,14 @@
 
 	<!-- Services -->
 	<script src="app/Services/common.services.js"></script>
-    <script src="app/Services/houseResource.js"></script>
-    <script src="app/Services/MockServices/houseResourceMock.js"></script>
+	<script src="app/Services/houseResource.js"></script>
+	<script src="app/Services/MockServices/houseResourceMock.js"></script>
 
 	<!-- Controllers -->
 	<script src="app/Controllers/productCtrl.js"></script>
 	<script src="app/Controllers/houseCtrl.js"></script>
+	<script src="app/Controllers/houseDetailCtrl.js"></script>
+	<script src="app/Controllers/houseEditCtrl.js"></script>
 	<!-- Script to Activate the Carousel -->
 	<script>
 	$('.carousel').carousel({

@@ -84,10 +84,22 @@
     <Content Include="about.html" />
     <Content Include="app\app.js" />
     <Content Include="app\Controllers\houseCtrl.js" />
+    <Content Include="app\Controllers\houseDetailCtrl.js" />
+    <Content Include="app\Controllers\houseEditCtrl.js" />
     <Content Include="app\Controllers\productCtrl.js" />
     <Content Include="app\Services\common.services.js" />
     <Content Include="app\Services\houseResource.js" />
     <Content Include="app\Services\MockServices\houseResourceMock.js" />
+    <Content Include="app\Views\Home\aboutView.html" />
+    <Content Include="app\Views\Home\welcomeView.html" />
+    <Content Include="app\Views\House\houseDetailView.html" />
+    <Content Include="app\Views\House\houseEditAdminInfoView.html" />
+    <Content Include="app\Views\House\houseEditImagesView.html" />
+    <Content Include="app\Views\House\houseEditInfoView.html" />
+    <Content Include="app\Views\House\houseEditMapView.html" />
+    <Content Include="app\Views\House\houseEditView.html" />
+    <Content Include="app\Views\House\houseListView.html" />
+    <Content Include="Content\css\app.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\modern-business.css" />
@@ -98,11 +110,12 @@
     <Content Include="Content\images\TestImages\Leaf-Rake.png" />
     <Content Include="Content\images\TestImages\rejon-Hammer.png" />
     <Content Include="Global.asax" />
-    <Content Include="Index.html" />
+    <Content Include="index.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-resource.min.js" />
+    <Content Include="scripts\angular-ui-router.min.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -163,7 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\Models\" />
-    <Folder Include="app\Views\" />
+    <Folder Include="app\Views\User\" />
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
