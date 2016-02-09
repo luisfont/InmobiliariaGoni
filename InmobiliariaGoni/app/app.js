@@ -3,6 +3,8 @@
     var app = angular.module("realEstateManagement",
                                 ["common.services",
                                     "ui.router",
+                                    "ui.mask",
+                                    "ui.bootstrap",
                                     "houseResourceMock"]);
 
     app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
@@ -56,7 +58,8 @@
             })
             .state("houseEdit.info", {
                 url: "/info",
-                templateUrl: "app/Views/House/houseEditInfoView.html"
+                templateUrl: "app/Views/House/houseEditInfoView.html",
+                controller: "HouseEditInfoCtrl as vm"
             })
             .state("houseEdit.images", {
                 url: "/images",
