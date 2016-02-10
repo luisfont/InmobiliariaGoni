@@ -1,0 +1,9 @@
+﻿{
+  "AppSettings": {
+    "SiteEmailAddress": "site@gonibienesraices.com",
+    "ContactFormEmails": "site@gonibienesraices.com"
+  },
+  "Data": {
+    "RealEstateContextConnection": "Server=FONTSPC\\SQLEXPRESS2014;Database=RealEstateManagementDB;Trusted_Connection=true;MultipleActiveResultSets=true"
+  }
+}
