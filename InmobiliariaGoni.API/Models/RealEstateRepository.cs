@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Data.Entity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,10 @@ namespace InmobiliariaGoni.Models
             try
             {
                 return _context.Houses
-                .OrderBy(h => h.HouseTitle)
-                .ToList();
+                    //.Include(h => h.Images)
+                    .Include(h => h.Tags)
+                    .OrderBy(h => h.HouseTitle)
+                    .ToList();
             }
             catch (Exception ex)
             {
@@ -31,6 +34,22 @@ namespace InmobiliariaGoni.Models
                 return null;
             }
             
+        }
+
+        public House GetHouseById(int id)
+        {
+            try
+            {
+                return _context.Houses
+                    .Include(h => h.Images)
+                    .Include(h => h.Tags)
+                    .SingleOrDefault(h => h.Id == id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Could not get Houses from the database", ex);
+                return null;
+            }
         }
 
         public IEnumerable<Category> GetAllCategories()
@@ -59,5 +78,34 @@ namespace InmobiliariaGoni.Models
             }
         }
 
+        public void AddHouse(House newHouse)
+        {
+            Tag checkTag;
+            foreach (var tag in newHouse.TagList)
+            {
+                checkTag = _context.Tags.SingleOrDefault(t => t.Description == tag);
+                if (checkTag == null)
+                {
+                    newHouse.Tags.Add(new Tag { Description = tag });
+                }
+                else
+                    newHouse.Tags.Add(checkTag);
+            }
+            
+            _context.Add(newHouse);
+        }
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
+
+        public House GetHouseByCode(string houseCode)
+        {
+            return _context.Houses
+                .Include(h => h.Images)
+                .Include(h => h.Tags)
+                .FirstOrDefault(h => h.HouseCode == houseCode);
+        }
     }
 }

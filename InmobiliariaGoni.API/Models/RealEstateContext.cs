@@ -1,8 +1,9 @@
-﻿using Microsoft.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Data.Entity;
 
 namespace InmobiliariaGoni.Models
 {
-    public class RealEstateContext : DbContext
+    public class RealEstateContext : IdentityDbContext<RealEstateUser>
     {
         public RealEstateContext()
         {

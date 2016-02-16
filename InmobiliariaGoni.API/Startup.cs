@@ -11,6 +11,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
 using InmobiliariaGoni.Models;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using AutoMapper;
+using InmobiliariaGoni.API.ViewModels;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Authentication.Cookies;
+using System.Net;
 
 namespace InmobiliariaGoni
 {
@@ -32,7 +39,38 @@ namespace InmobiliariaGoni
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(config => 
+            {
+#if !DEBUG
+                config.Filters.Add(new RequireHttpsAttribute());
+#endif
+            })
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                });
+
+            services.AddIdentity<RealEstateUser, IdentityRole>(config => 
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+                config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
+                {
+                    OnRedirectToLogin = context =>
+                    {
+                        if (context.Request.Path.StartsWithSegments("/api") && context.Response.StatusCode == (int)HttpStatusCode.OK)
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        }
+                        else
+                        {
+                            context.Response.Redirect(context.RedirectUri);
+                        }
+                        return Task.FromResult(0);
+                    }
+                };
+            })
+            .AddEntityFrameworkStores<RealEstateContext>();
 
             services.AddLogging();
 
@@ -40,6 +78,7 @@ namespace InmobiliariaGoni
                 .AddSqlServer()
                 .AddDbContext<RealEstateContext>();
 
+            services.AddScoped<CoordService>();
             services.AddTransient<RealEstateContextSeedData>();
             services.AddScoped<IRealEstateRepository, RealEstateRepository>();
 
@@ -52,11 +91,20 @@ namespace InmobiliariaGoni
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, RealEstateContextSeedData seeder, ILoggerFactory loggerFactory)
+        public async void Configure(IApplicationBuilder app, RealEstateContextSeedData seeder, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddDebug(LogLevel.Warning);
+            loggerFactory.AddDebug(LogLevel.Information);
             //app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseIdentity();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<House, HouseViewModel>().ReverseMap();
+                config.CreateMap<Image, ImageViewModel>().ReverseMap();
+            });
+
             app.UseMvc(config =>
             {
                 config.MapRoute
@@ -73,7 +121,7 @@ namespace InmobiliariaGoni
             //    await context.Response.WriteAsync("Hello World!");
             //});
 
-            seeder.EnsureSeedData();
+            await seeder.EnsureSeedData();
         }
 
         // Entry point for the application.

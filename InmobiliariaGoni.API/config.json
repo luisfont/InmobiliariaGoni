@@ -1,9 +1,11 @@
 ﻿{
   "AppSettings": {
     "SiteEmailAddress": "site@gonibienesraices.com",
-    "ContactFormEmails": "site@gonibienesraices.com"
+    "ContactFormEmails": "site@gonibienesraices.com",
+    "BingMapsKey": "Added in environment variables"
   },
   "Data": {
-    "RealEstateContextConnection": "Server=FONTSPC\\SQLEXPRESS2014;Database=RealEstateManagementDB;Trusted_Connection=true;MultipleActiveResultSets=true"
+    "__Comment": "Work Server: LSTKMY66931\\SQLSERVER2014, Home Server: FONTSPC\\SQLEXPRESS2014",
+    "RealEstateContextConnection": "Server=LSTKMY66931\\SQLSERVER2014;Database=RealEstateManagementDB;Trusted_Connection=true;MultipleActiveResultSets=true"
   }
 }

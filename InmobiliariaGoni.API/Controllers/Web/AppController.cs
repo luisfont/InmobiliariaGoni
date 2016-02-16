@@ -1,5 +1,6 @@
 ﻿using InmobiliariaGoni.Models;
 using InmobiliariaGoni.Website.ViewModels;
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 using System;
 using System.Linq;
@@ -28,6 +29,16 @@ namespace InmobiliariaGoni.Website.Controllers
         {
             return View();
         }
+
+        //Test view for authorization purposes
+        [Authorize]
+        [HttpGet]
+        public IActionResult Houses()
+        {
+            var houses = _repository.GetAllHouses();
+            return View(houses);
+        }
+
         [HttpPost]
         public ActionResult Contact(ContactViewModel model)
         {

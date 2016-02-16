@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InmobiliariaGoni.Models
 {
@@ -13,6 +14,8 @@ namespace InmobiliariaGoni.Models
         public decimal Price { get; set; }
         public Category Category { get; set; }
         public ICollection<Tag> Tags { get; set; }
+        [NotMapped]
+        public ICollection<string> TagList { get; set; }
         public ICollection<Image> Images { get; set; }
     }
 }
