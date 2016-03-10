@@ -86,7 +86,8 @@
     <Content Include="app\Controllers\houseCtrl.js" />
     <Content Include="app\Controllers\houseDetailCtrl.js" />
     <Content Include="app\Controllers\houseEditCtrl.js" />
-    <Content Include="app\Controllers\HouseEditInfoCtrl.js" />
+    <Content Include="app\Controllers\houseEditInfoCtrl.js" />
+    <Content Include="app\Controllers\houseEditTagsCtrl.js" />
     <Content Include="app\Controllers\productCtrl.js" />
     <Content Include="app\Services\common.services.js" />
     <Content Include="app\Services\houseResource.js" />
@@ -98,12 +99,14 @@
     <Content Include="app\Views\House\houseEditImagesView.html" />
     <Content Include="app\Views\House\houseEditInfoView.html" />
     <Content Include="app\Views\House\houseEditMapView.html" />
+    <Content Include="app\Views\House\houseEditTagsView.html" />
     <Content Include="app\Views\House\houseEditView.html" />
     <Content Include="app\Views\House\houseListView.html" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\modern-business.css" />
+    <Content Include="Content\css\toastr.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -123,6 +126,7 @@
     <Content Include="scripts\contact_me.js" />
     <Content Include="scripts\jqBootstrapValidation.js" />
     <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\toastr.js" />
     <Content Include="scripts\ui-bootstrap-tpls-0.11.0.js" />
     <Content Include="scripts\ui-utils.js" />
     <Content Include="Web.config" />

@@ -1,19 +1,36 @@
-﻿<form name="houseForm" class="form-horizontal">
+﻿<form name="houseForm" class="form-horizontal" novalidate>
     <fieldset>
         <legend>Informaci&oacute;n b&aacute;sica de la casa</legend>
-        <div class="form-group">
+        <div class="form-group" 
+             ng-class="{'has-error': houseForm.inputHouseTitle.$invalid &&
+                                    houseForm.inputHouseTitle.$dirty}">
             <label for="inputHouseTitle" class="col-sm-2 control-label">T&iacute;tulo de la casa</label>
             <div class="col-sm-4">
-                <input id="inputHouseTitle" type="text" placeholder="T&iacute;tulo de la casa"
-                       ng-model="vm.house.houseTitle" class="form-control" />
+                <input id="inputHouseTitle" name="inputHouseTitle"
+                       type="text" placeholder="T&iacute;tulo de la casa (requerido)"
+                       ng-model="vm.house.houseTitle" class="form-control" 
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="50" />
             </div>
+            <span class="help-block has-error"
+                  ng-show="houseForm.inputHouseTitle.$invalid">
+                El t&iacute;tulo de la casa es requerido
+            </span>
         </div>
-        <div class="form-group">
+        <div class="form-group" 
+             ng-class="{'has-error': houseForm.inputHouseCode.$invalid &&
+                                    houseForm.inputHouseCode.$dirty}">
             <label for="inputHouseCode" class="col-sm-2 control-label">C&oacute;digo de la casa</label>
             <div class="col-sm-4">
-                <input id="inputHouseCode" type="text" 
-                       ng-model="vm.house.houseCode" class="form-control" ui-mask="AAA-999" />
+                <input id="inputHouseCode" type="text" name="inputHouseCode"
+                       ng-model="vm.house.houseCode" class="form-control" 
+                       ui-mask="AAA-999 (requerido)" required />
             </div>
+            <span class="help-block has-error"
+                  ng-show="houseForm.inputHouseCode.$invalid">
+                El c&oacute;digo de la casa es requerido y con formato "AAA-999"
+            </span>
         </div>
         <div class="form-group">
             <label for="inputHouseAvailabilityDate" class="col-sm-2 control-label">Disponible desde</label>
@@ -40,7 +57,12 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Siguiente</button>
+                <span>
+                    <button type="submit" class="btn btn-default" ng-click="vm.submit()">Siguiente</button>
+                </span>
+                <span>
+                    <button type="button" class="btn btn-primary" ng-click="vm.cancel()">Cancel</button>
+                </span>
             </div>
         </div>
     </fieldset>

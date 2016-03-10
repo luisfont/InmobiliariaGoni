@@ -61,6 +61,11 @@
                 templateUrl: "app/Views/House/houseEditInfoView.html",
                 controller: "HouseEditInfoCtrl as vm"
             })
+            .state("houseEdit.tags", {
+                url: "/tags",
+                templateUrl: "app/Views/House/houseEditTagsView.html",
+                controller: "HouseEditTagsCtrl as vm"
+            })
             .state("houseEdit.images", {
                 url: "/images",
                 templateUrl: "app/Views/House/houseEditImagesView.html"
